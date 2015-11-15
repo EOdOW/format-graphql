@@ -1,0 +1,17 @@
+mutation {
+  likeStory(storyID: 12345) {
+    story
+    {
+      likeCount
+    }
+  }
+}
+query variableIsNotDefinedUsedInSingleFragment {
+  dog
+  {
+    ...isHousetrainedFragment
+  }
+}
+fragment isHousetrainedFragment on Dog {
+  isHousetrained(atOtherHomes: $atOtherHomes)
+}

@@ -1,0 +1,19 @@
+# See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Flatten GraphQL'
+      'submenu': [
+        {
+          'label': 'Flatten'
+          'command': 'format-graphql:flatten'
+        }
+        {
+          'label': 'Unflatten'
+          'command': 'format-graphql:unflatten'
+        }
+      ]
+    ]
+  }
+]
