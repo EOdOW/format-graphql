@@ -3,10 +3,8 @@
   "main": "./lib/format-graphql",
   "version": "0.0.0",
   "description": "Format GraphQL queries by flattening or unflattening them",
-  "keywords": [
-  ],
   "activationCommands": [],
-  "repository": "https://github.com/atom/format-graphql",
+  "repository": "https://github.com/EOdOW/format-graphql",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
