@@ -1,7 +1,7 @@
 {
   "name": "format-graphql",
   "main": "./lib/format-graphql",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Format GraphQL queries by flattening or unflattening them",
   "activationCommands": [],
   "repository": "https://github.com/EOdOW/format-graphql",
@@ -9,6 +9,5 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
