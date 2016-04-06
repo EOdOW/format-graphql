@@ -10,8 +10,8 @@ module.exports = FlattenGql =
     @subscriptions = new CompositeDisposable
 
     # Register command that toggles this view
-    @subscriptions.add atom.commands.add 'atom-workspace', 'format-graphql:flatten': => @format('unflatten')
-    @subscriptions.add atom.commands.add 'atom-workspace', 'format-graphql:unflatten': => @format('flatten')
+    @subscriptions.add atom.commands.add 'atom-workspace', 'format-graphql:flatten': => @format('flatten')
+    @subscriptions.add atom.commands.add 'atom-workspace', 'format-graphql:unflatten': => @format('unflatten')
 
   deactivate: ->
     @subscriptions.dispose()
@@ -20,9 +20,14 @@ module.exports = FlattenGql =
     editor = atom.workspace.getActiveTextEditor()
     return unless editor?
 
-    text = editor.getSelectedText() or editor.getText()
+    selection = editor.getSelectedText()
+    text = selection or editor.getText()
+    selectionRange = editor.getSelectedBufferRange()
     newLine = text.match('\n')
     shouldFormat = mode == 'unflatten' and !newLine or mode == 'flatten' and newLine
 
     if shouldFormat
-      editor.setText UtilsFlattenGql[mode](text)
+      if selection
+        editor.setTextInBufferRange editor.getSelectedBufferRange(), UtilsFlattenGql[mode](text)
+      else
+        editor.setText UtilsFlattenGql[mode](text)
